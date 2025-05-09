@@ -97,13 +97,8 @@ Adjust the layout proportions by changing the `defaultTopLayout` and `defaultBot
 />
 ```
 
-## License
+### Improvements
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- [shadcn/ui](https://ui.shadcn.com/) for the beautiful UI components
-- [Tailwind CSS](https://tailwindcss.com/) for the styling system
-- [Lucide Icons](https://lucide.dev/) for the icon set
-- [Next.js](https://nextjs.org) for the React framework
+- use [gridstack.js](https://gridstackjs.com/) for adding individual static cards onto the dashboard.
+- use [Motion - (prev)framer motion](https://motion.dev/) for small interactive CSS elements.
+- DashGPT - a AI powered assistant which generates reports from the data through a prompt.
