@@ -1,6 +1,6 @@
-"use client";
+'use client'
 
-import * as React from "react";
+import * as React from 'react'
 import {
   BookOpen,
   ChartArea,
@@ -13,149 +13,153 @@ import {
   Map,
   PieChart,
   Settings2,
-} from "lucide-react";
+} from 'lucide-react'
 
-import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
-import { NavUser } from "@/components/nav-user";
-import { TeamSwitcher } from "@/components/team-switcher";
+import { NavMain } from '@/components/nav-main'
+import { NavProjects } from '@/components/nav-projects'
+import { NavUser } from '@/components/nav-user'
+import { TeamSwitcher } from '@/components/team-switcher'
 import {
   Sidebar,
   SidebarContent,
   SidebarFooter,
   SidebarHeader,
   SidebarRail,
-} from "@/components/ui/sidebar";
+} from '@/components/ui/sidebar'
 
 const data = {
   user: {
-    name: "sentisum",
-    email: "product-designer@sentisum.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: 'sentisum',
+    email: 'product-designer@sentisum.com',
+    avatar: '/avatars/shadcn.jpg',
   },
   teams: [
     {
-      name: "Senti Sum",
+      name: 'Senti Sum',
       logo: ChartArea,
-      plan: "Enterprise",
+      plan: 'Enterprise',
     },
     {
-      name: "Meal Kit Support",
+      name: 'Meal Kit Support',
       logo: IceCreamBowlIcon,
-      plan: "Startup",
+      plan: 'Startup',
     },
     {
-      name: "Meal Kit Survey",
+      name: 'Meal Kit Survey',
       logo: ChartBar,
-      plan: "Startup",
+      plan: 'Startup',
     },
     {
-      name: "Gaming Support",
+      name: 'Gaming Support',
       logo: Gamepad2,
-      plan: "Free",
+      plan: 'Free',
     },
   ],
   navMain: [
     {
-      title: "Organization",
-      url: "#",
+      title: 'Organization',
+      url: '#',
       icon: HomeIcon,
       isActive: true,
       items: [
         {
-          title: "Default Homepage",
-          url: "#",
+          title: 'Default Homepage',
+          url: '#',
         },
         {
-          title: "Team members",
-          url: "#",
+          title: 'DashGPT - Your AI powered Assistant',
+          url: '#',
         },
         {
-          title: "Integrations",
-          url: "#",
+          title: 'Team members',
+          url: '#',
+        },
+        {
+          title: 'Integrations',
+          url: '#',
         },
       ],
     },
     {
-      title: "Data",
-      url: "#",
+      title: 'Data',
+      url: '#',
       icon: Database,
       items: [
         {
-          title: "Email Digest",
-          url: "#",
+          title: 'Email Digest',
+          url: '#',
         },
         {
-          title: "Theme Management",
-          url: "#",
+          title: 'Theme Management',
+          url: '#',
         },
       ],
     },
     {
-      title: "Documentation",
-      url: "#",
+      title: 'Documentation',
+      url: '#',
       icon: BookOpen,
       items: [
         {
-          title: "Introduction",
-          url: "#",
+          title: 'Introduction',
+          url: '#',
         },
         {
-          title: "Get Started",
-          url: "#",
+          title: 'Get Started',
+          url: '#',
         },
         {
-          title: "Tutorials",
-          url: "#",
+          title: 'Tutorials',
+          url: '#',
         },
         {
-          title: "Changelog",
-          url: "#",
+          title: 'Changelog',
+          url: '#',
         },
       ],
     },
     {
-      title: "Settings",
-      url: "#",
+      title: 'Settings',
+      url: '#',
       icon: Settings2,
       items: [
         {
-          title: "General",
-          url: "#",
+          title: 'General',
+          url: '#',
         },
         {
-          title: "Team",
-          url: "#",
+          title: 'Team',
+          url: '#',
         },
         {
-          title: "Billing",
-          url: "#",
+          title: 'Billing',
+          url: '#',
         },
         {
-          title: "Limits",
-          url: "#",
+          title: 'Limits',
+          url: '#',
         },
       ],
     },
   ],
   projects: [
     {
-      name: "Design Engineering",
-      url: "#",
+      name: 'Design Engineering',
+      url: '#',
       icon: Frame,
     },
     {
-      name: "Sales & Marketing",
-      url: "#",
+      name: 'Sales & Marketing',
+      url: '#',
       icon: PieChart,
     },
     {
-      name: "Travel",
-      url: "#",
+      name: 'Travel',
+      url: '#',
       icon: Map,
     },
   ],
-};
+}
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
@@ -172,5 +176,5 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
-  );
+  )
 }

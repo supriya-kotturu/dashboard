@@ -1,56 +1,58 @@
-import Image from "next/image";
+import { StaticCard } from '@/components/static-card'
+import { DashboardLayout } from '@/components/dashboard-layout'
+import { ChartDisplay } from '@/components/chart-display'
+import { ConversationItem } from '@/components/conversation-item'
+import { cardData, conversationData } from '@/data'
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-4 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start w-full"></main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+    <div className="h-screen flex flex-col">
+      <main className="flex-1 overflow-hidden">
+        <DashboardLayout
+          topContent={
+            <div>
+              <h2 className="text-base font-bold mb-4">Dashboard Overview</h2>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                {cardData.slice(0, 10).map(card => (
+                  <StaticCard
+                    key={card.title}
+                    className="w-full"
+                    title={card.title}
+                    tag={card.tag}
+                    stats={card.stats}
+                    trend={card.trend}
+                    percentage={card.percentage}
+                    icon={card.icon}
+                  />
+                ))}
+              </div>
+            </div>
+          }
+          leftBottomContent={<ChartDisplay />}
+          rightBottomContent={
+            <div>
+              <h2 className="text-base font-bold mb-4">Recent Conversations</h2>
+              <div className="space-y-4">
+                {conversationData.map(conversation => (
+                  <ConversationItem
+                    key={conversation.id}
+                    id={conversation.id}
+                    customerName={conversation.customerName}
+                    customerGroup={conversation.customerGroup}
+                    date={conversation.date}
+                    review={conversation.review}
+                    conversation={conversation.conversation}
+                  />
+                ))}
+              </div>
+            </div>
+          }
+          defaultBottomLayout={[60, 40]}
+        />
+      </main>
+      <footer className="p-3 text-center text-sm text-muted-foreground border-t">
+        <p>© 2024 Dashboard Demo. All rights reserved.</p>
       </footer>
     </div>
-  );
+  )
 }
