@@ -2,6 +2,10 @@
 
 A modern, interactive dashboard built with Next.js, React, and Tailwind CSS featuring resizable panels, data visualization, and a responsive design.
 
+## Try It Out
+
+Experience the dashboard live: [Resizable Dashboard Demo](https://resizable-dashboard.vercel.app/)
+
 ## Demo
 
 ![Dashboard Demo](/public/images/demo.png)
@@ -24,7 +28,7 @@ A modern, interactive dashboard built with Next.js, React, and Tailwind CSS feat
 
 ## Project Structure
 
-```
+```bash
 dashboard/
 ├── public/             # Static assets
 ├── src/
