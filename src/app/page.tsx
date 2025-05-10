@@ -1,5 +1,5 @@
 import { StaticCard } from '@/components/static-card'
-import { DashboardLayout } from '@/components/dashboard-layout'
+import { DashboardLayout } from '@/components/layout/dashboard-layout'
 import { ChartDisplay } from '@/components/chart-display'
 import { ConversationItem } from '@/components/conversation-item'
 import { cardData, conversationData } from '@/data'

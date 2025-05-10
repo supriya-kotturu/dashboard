@@ -8,16 +8,16 @@ import {
   Database,
   Frame,
   Gamepad2,
-  HomeIcon,
-  IceCreamBowlIcon,
+  Home as HomeIcon,
+  IceCream as IceCreamBowlIcon,
   Map,
   PieChart,
   Settings2,
 } from 'lucide-react'
 
-import { NavMain } from '@/components/nav-main'
-import { NavProjects } from '@/components/nav-projects'
-import { NavUser } from '@/components/nav-user'
+import { NavMain } from '@/components/navigation/nav-main'
+import { NavProjects } from '@/components/navigation/nav-projects'
+import { NavUser } from '@/components/navigation/nav-user'
 import { TeamSwitcher } from '@/components/team-switcher'
 import {
   Sidebar,
