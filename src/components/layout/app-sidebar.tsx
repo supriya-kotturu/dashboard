@@ -1,25 +1,17 @@
 'use client'
 
 import * as React from 'react'
-import {
-  BookOpen,
-  ChartArea,
-  ChartBar,
-  Database,
-  Frame,
-  Gamepad2,
-  Home as HomeIcon,
-  IceCream as IceCreamBowlIcon,
-  Map,
-  PieChart,
-  Settings2,
-} from 'lucide-react'
+import { cva } from 'class-variance-authority'
 
-import { NavMain } from '@/components/navigation/nav-main'
-import { NavProjects } from '@/components/navigation/nav-projects'
-import { NavUser } from '@/components/navigation/nav-user'
-import { ModeToggle } from '@/components/theme/theme-toggle'
-import { TeamSwitcher } from '@/components/team-switcher'
+import { sidebarData } from '@/data/sidebar-data'
+import { cn } from '@/lib/utils'
+import {
+  NavMain,
+  NavProjects,
+  NavUser,
+  SidebarFooterActions,
+  TeamSwitcher
+} from '@/components/navigation'
 import {
   Sidebar,
   SidebarContent,
@@ -28,156 +20,44 @@ import {
   SidebarRail,
 } from '@/components/ui/sidebar'
 
-const data = {
-  user: {
-    name: 'sentisum',
-    email: 'product-designer@sentisum.com',
-    avatar: '/avatars/shadcn.jpg',
-  },
-  teams: [
-    {
-      name: 'Senti Sum',
-      logo: ChartArea,
-      plan: 'Enterprise',
+const appSidebarVariants = cva(
+  '',
+  {
+    variants: {
+      variant: {
+        default: '',
+        compact: 'gap-1',
+        spacious: 'gap-4',
+      },
     },
-    {
-      name: 'Meal Kit Support',
-      logo: IceCreamBowlIcon,
-      plan: 'Startup',
+    defaultVariants: {
+      variant: 'default',
     },
-    {
-      name: 'Meal Kit Survey',
-      logo: ChartBar,
-      plan: 'Startup',
-    },
-    {
-      name: 'Gaming Support',
-      logo: Gamepad2,
-      plan: 'Free',
-    },
-  ],
-  navMain: [
-    {
-      title: 'Organization',
-      url: '#',
-      icon: HomeIcon,
-      isActive: true,
-      items: [
-        {
-          title: 'Default Homepage',
-          url: '#',
-        },
-        {
-          title: 'DashGPT - Your AI powered Assistant',
-          url: '#',
-        },
-        {
-          title: 'Team members',
-          url: '#',
-        },
-        {
-          title: 'Integrations',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Data',
-      url: '#',
-      icon: Database,
-      items: [
-        {
-          title: 'Email Digest',
-          url: '#',
-        },
-        {
-          title: 'Theme Management',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Documentation',
-      url: '#',
-      icon: BookOpen,
-      items: [
-        {
-          title: 'Introduction',
-          url: '#',
-        },
-        {
-          title: 'Get Started',
-          url: '#',
-        },
-        {
-          title: 'Tutorials',
-          url: '#',
-        },
-        {
-          title: 'Changelog',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Settings',
-      url: '#',
-      icon: Settings2,
-      items: [
-        {
-          title: 'General',
-          url: '#',
-        },
-        {
-          title: 'Team',
-          url: '#',
-        },
-        {
-          title: 'Billing',
-          url: '#',
-        },
-        {
-          title: 'Limits',
-          url: '#',
-        },
-      ],
-    },
-  ],
-  projects: [
-    {
-      name: 'Design Engineering',
-      url: '#',
-      icon: Frame,
-    },
-    {
-      name: 'Sales & Marketing',
-      url: '#',
-      icon: PieChart,
-    },
-    {
-      name: 'Travel',
-      url: '#',
-      icon: Map,
-    },
-  ],
+  }
+)
+
+interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
+  variant?: 'default' | 'compact' | 'spacious'
 }
 
-export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+export function AppSidebar({ className, variant, ...props }: AppSidebarProps) {
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar 
+      collapsible="icon" 
+      className={cn(appSidebarVariants({ variant }), className)} 
+      {...props}
+    >
       <SidebarHeader>
-        <TeamSwitcher teams={data.teams} />
+        <TeamSwitcher teams={sidebarData.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
+        <NavMain items={sidebarData.navMain} />
+        <NavProjects projects={sidebarData.projects} />
       </SidebarContent>
       <SidebarFooter>
         <div className="flex flex-col gap-2">
-          <div className="flex px-2 group-data-[collapsible=icon]:px-0">
-            <ModeToggle iconSize="xs" />
-          </div>
-          <NavUser user={data.user} />
+          <SidebarFooterActions iconSize="xs" />
+          <NavUser user={sidebarData.user} />
         </div>
       </SidebarFooter>
       <SidebarRail />

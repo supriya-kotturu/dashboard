@@ -1,6 +1,11 @@
 'use client'
 
+import * as React from 'react'
 import { BadgeCheck, Bell, ChevronsUpDown, CreditCard, LogOut, Sparkles } from 'lucide-react'
+import { cva } from 'class-variance-authority'
+
+import { User } from '@/lib/types'
+import { cn } from '@/lib/utils'
 
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
@@ -19,19 +24,37 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 
+const navUserVariants = cva(
+  '',
+  {
+    variants: {
+      variant: {
+        default: '',
+        compact: '',
+        spacious: '',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+    },
+  }
+)
+
+interface NavUserProps extends React.HTMLAttributes<HTMLDivElement> {
+  user: User
+  variant?: 'default' | 'compact' | 'spacious'
+}
+
 export function NavUser({
   user,
-}: Readonly<{
-  user: {
-    name: string
-    email: string
-    avatar: string
-  }
-}>) {
+  className,
+  variant,
+  ...props
+}: NavUserProps) {
   const { isMobile } = useSidebar()
 
   return (
-    <SidebarMenu>
+    <SidebarMenu className={cn(navUserVariants({ variant }), className)} {...props}>
       <SidebarMenuItem>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

@@ -1,6 +1,11 @@
 'use client'
 
-import { ChevronRight, type LucideIcon } from 'lucide-react'
+import * as React from 'react'
+import { ChevronRight } from 'lucide-react'
+import { cva } from 'class-variance-authority'
+
+import { NavItem } from '@/lib/types'
+import { cn } from '@/lib/utils'
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
 import {
@@ -14,22 +19,35 @@ import {
   SidebarMenuSubItem,
 } from '@/components/ui/sidebar'
 
+const navMainVariants = cva(
+  '',
+  {
+    variants: {
+      variant: {
+        default: '',
+        compact: 'gap-1',
+        spacious: 'gap-3',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+    },
+  }
+)
+
+interface NavMainProps extends React.HTMLAttributes<HTMLDivElement> {
+  items: NavItem[]
+  variant?: 'default' | 'compact' | 'spacious'
+}
+
 export function NavMain({
   items,
-}: {
-  items: {
-    title: string
-    url: string
-    icon?: LucideIcon
-    isActive?: boolean
-    items?: {
-      title: string
-      url: string
-    }[]
-  }[]
-}) {
+  className,
+  variant,
+  ...props
+}: NavMainProps) {
   return (
-    <SidebarGroup>
+    <SidebarGroup className={cn(navMainVariants({ variant }), className)} {...props}>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
       <SidebarMenu>
         {items.map(item => (

@@ -1,6 +1,11 @@
 'use client'
 
-import { Folder, Forward, MoreHorizontal, Trash2, type LucideIcon } from 'lucide-react'
+import * as React from 'react'
+import { Folder, Forward, MoreHorizontal, Trash2 } from 'lucide-react'
+import { cva } from 'class-variance-authority'
+
+import { Project } from '@/lib/types'
+import { cn } from '@/lib/utils'
 
 import {
   DropdownMenu,
@@ -19,19 +24,37 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 
+const navProjectsVariants = cva(
+  'group-data-[collapsible=icon]:hidden',
+  {
+    variants: {
+      variant: {
+        default: '',
+        compact: 'gap-1',
+        spacious: 'gap-3',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+    },
+  }
+)
+
+interface NavProjectsProps extends React.HTMLAttributes<HTMLDivElement> {
+  projects: Project[]
+  variant?: 'default' | 'compact' | 'spacious'
+}
+
 export function NavProjects({
   projects,
-}: {
-  projects: {
-    name: string
-    url: string
-    icon: LucideIcon
-  }[]
-}) {
+  className,
+  variant,
+  ...props
+}: NavProjectsProps) {
   const { isMobile } = useSidebar()
 
   return (
-    <SidebarGroup className="group-data-[collapsible=icon]:hidden">
+    <SidebarGroup className={cn(navProjectsVariants({ variant }), className)} {...props}>
       <SidebarGroupLabel>Projects</SidebarGroupLabel>
       <SidebarMenu>
         {projects.map(item => (
