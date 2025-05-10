@@ -24,33 +24,25 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 
-const navProjectsVariants = cva(
-  'group-data-[collapsible=icon]:hidden',
-  {
-    variants: {
-      variant: {
-        default: '',
-        compact: 'gap-1',
-        spacious: 'gap-3',
-      },
+const navProjectsVariants = cva('group-data-[collapsible=icon]:hidden', {
+  variants: {
+    variant: {
+      default: '',
+      compact: 'gap-1',
+      spacious: 'gap-3',
     },
-    defaultVariants: {
-      variant: 'default',
-    },
-  }
-)
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+})
 
 interface NavProjectsProps extends React.HTMLAttributes<HTMLDivElement> {
   projects: Project[]
   variant?: 'default' | 'compact' | 'spacious'
 }
 
-export function NavProjects({
-  projects,
-  className,
-  variant,
-  ...props
-}: NavProjectsProps) {
+export function NavProjects({ projects, className, variant, ...props }: NavProjectsProps) {
   const { isMobile } = useSidebar()
 
   return (

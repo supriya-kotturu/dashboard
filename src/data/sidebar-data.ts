@@ -20,7 +20,7 @@ export const sidebarData = {
     email: 'product-designer@sentisum.com',
     avatar: '/avatars/shadcn.jpg',
   } as User,
-  
+
   teams: [
     {
       name: 'Senti Sum',
@@ -43,7 +43,7 @@ export const sidebarData = {
       plan: 'Free',
     },
   ] as Team[],
-  
+
   navMain: [
     {
       title: 'Organization',
@@ -131,7 +131,7 @@ export const sidebarData = {
       ],
     },
   ] as NavItem[],
-  
+
   projects: [
     {
       name: 'Design Engineering',

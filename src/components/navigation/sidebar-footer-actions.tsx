@@ -6,38 +6,32 @@ import { cva } from 'class-variance-authority'
 import { cn } from '@/lib/utils'
 import { ModeToggle } from '@/components/theme/theme-toggle'
 
-const sidebarFooterActionsVariants = cva(
-  'flex flex-col gap-2',
-  {
-    variants: {
-      size: {
-        default: '',
-        sm: 'gap-1',
-        lg: 'gap-3',
-      },
+const sidebarFooterActionsVariants = cva('flex flex-col gap-2', {
+  variants: {
+    size: {
+      default: '',
+      sm: 'gap-1',
+      lg: 'gap-3',
     },
-    defaultVariants: {
-      size: 'default',
-    },
-  }
-)
+  },
+  defaultVariants: {
+    size: 'default',
+  },
+})
 
-const toggleContainerVariants = cva(
-  'flex',
-  {
-    variants: {
-      padding: {
-        default: 'px-2 group-data-[collapsible=icon]:px-0',
-        none: '',
-        sm: 'px-1 group-data-[collapsible=icon]:px-0',
-        lg: 'px-3 group-data-[collapsible=icon]:px-0',
-      },
+const toggleContainerVariants = cva('flex', {
+  variants: {
+    padding: {
+      default: 'px-2 group-data-[collapsible=icon]:px-0',
+      none: '',
+      sm: 'px-1 group-data-[collapsible=icon]:px-0',
+      lg: 'px-3 group-data-[collapsible=icon]:px-0',
     },
-    defaultVariants: {
-      padding: 'default',
-    },
-  }
-)
+  },
+  defaultVariants: {
+    padding: 'default',
+  },
+})
 
 interface SidebarFooterActionsProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: 'default' | 'sm' | 'lg'

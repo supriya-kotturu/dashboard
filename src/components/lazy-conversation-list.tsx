@@ -22,11 +22,11 @@ function ConversationSkeleton() {
 export function LazyConversationList({ conversations }: LazyConversationListProps) {
   // Only render the first 3 conversations initially, then load more as needed
   const [visibleCount, setVisibleCount] = useState(3)
-  
+
   const loadMore = () => {
     setVisibleCount(prev => Math.min(prev + 3, conversations.length))
   }
-  
+
   return (
     <div className="space-y-4">
       <Suspense fallback={<ConversationSkeleton />}>
@@ -42,9 +42,9 @@ export function LazyConversationList({ conversations }: LazyConversationListProp
           />
         ))}
       </Suspense>
-      
+
       {visibleCount < conversations.length && (
-        <button 
+        <button
           onClick={loadMore}
           className="w-full py-2 bg-primary/10 text-primary rounded-md text-sm hover:bg-primary/20 transition-colors"
         >

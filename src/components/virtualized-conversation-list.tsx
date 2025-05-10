@@ -39,11 +39,11 @@ export function VirtualizedConversationList({
     } else {
       // Fallback for browsers without ResizeObserver
       setContainerHeight(container.clientHeight)
-      
+
       const handleResize = () => {
         setContainerHeight(container.clientHeight)
       }
-      
+
       window.addEventListener('resize', handleResize)
       return () => {
         window.removeEventListener('resize', handleResize)
@@ -79,11 +79,7 @@ export function VirtualizedConversationList({
   const visibleItems = conversations.slice(startIndex, endIndex + 1)
 
   return (
-    <div
-      ref={containerRef}
-      className="h-full overflow-auto"
-      style={{ position: 'relative' }}
-    >
+    <div ref={containerRef} className="h-full overflow-auto" style={{ position: 'relative' }}>
       <div style={{ height: totalHeight, position: 'relative' }}>
         {visibleItems.map((conversation, index) => (
           <div

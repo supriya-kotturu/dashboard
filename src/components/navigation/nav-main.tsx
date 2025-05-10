@@ -19,33 +19,25 @@ import {
   SidebarMenuSubItem,
 } from '@/components/ui/sidebar'
 
-const navMainVariants = cva(
-  '',
-  {
-    variants: {
-      variant: {
-        default: '',
-        compact: 'gap-1',
-        spacious: 'gap-3',
-      },
+const navMainVariants = cva('', {
+  variants: {
+    variant: {
+      default: '',
+      compact: 'gap-1',
+      spacious: 'gap-3',
     },
-    defaultVariants: {
-      variant: 'default',
-    },
-  }
-)
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+})
 
 interface NavMainProps extends React.HTMLAttributes<HTMLDivElement> {
   items: NavItem[]
   variant?: 'default' | 'compact' | 'spacious'
 }
 
-export function NavMain({
-  items,
-  className,
-  variant,
-  ...props
-}: NavMainProps) {
+export function NavMain({ items, className, variant, ...props }: NavMainProps) {
   return (
     <SidebarGroup className={cn(navMainVariants({ variant }), className)} {...props}>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>

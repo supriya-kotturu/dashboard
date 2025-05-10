@@ -17,5 +17,5 @@ export const API = {
     USERS: '/users',
     TEAMS: '/teams',
     ANALYTICS: '/analytics',
-  }
+  },
 }

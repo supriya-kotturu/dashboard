@@ -27,13 +27,6 @@ interface SidebarProviderProps {
   data?: SidebarContextType
 }
 
-export function SidebarProvider({ 
-  children, 
-  data = sidebarData 
-}: SidebarProviderProps) {
-  return (
-    <SidebarContext.Provider value={data}>
-      {children}
-    </SidebarContext.Provider>
-  )
+export function SidebarProvider({ children, data = sidebarData }: SidebarProviderProps) {
+  return <SidebarContext.Provider value={data}>{children}</SidebarContext.Provider>
 }

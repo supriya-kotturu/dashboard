@@ -10,7 +10,7 @@ import {
   NavProjects,
   NavUser,
   SidebarFooterActions,
-  TeamSwitcher
+  TeamSwitcher,
 } from '@/components/navigation'
 import {
   Sidebar,
@@ -20,21 +20,18 @@ import {
   SidebarRail,
 } from '@/components/ui/sidebar'
 
-const appSidebarVariants = cva(
-  '',
-  {
-    variants: {
-      variant: {
-        default: '',
-        compact: 'gap-1',
-        spacious: 'gap-4',
-      },
+const appSidebarVariants = cva('', {
+  variants: {
+    variant: {
+      default: '',
+      compact: 'gap-1',
+      spacious: 'gap-4',
     },
-    defaultVariants: {
-      variant: 'default',
-    },
-  }
-)
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+})
 
 interface AppSidebarProps extends Omit<React.ComponentProps<typeof Sidebar>, 'variant'> {
   variant?: 'default' | 'compact' | 'spacious'
@@ -42,9 +39,9 @@ interface AppSidebarProps extends Omit<React.ComponentProps<typeof Sidebar>, 'va
 
 export function AppSidebar({ className, variant, ...props }: AppSidebarProps) {
   return (
-    <Sidebar 
-      collapsible="icon" 
-      className={cn(appSidebarVariants({ variant }), className)} 
+    <Sidebar
+      collapsible="icon"
+      className={cn(appSidebarVariants({ variant }), className)}
       {...props}
     >
       <SidebarHeader>

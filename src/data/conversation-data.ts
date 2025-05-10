@@ -42,7 +42,7 @@ export const conversationData: ConversationData[] = [
     date: '1 week ago',
     review: 'Having technical issues with the mobile app.',
     conversation:
-      'Customer: I\'m having trouble logging into the mobile app.\nAgent: I\'m sorry to hear that. Let\'s troubleshoot together. What error message are you seeing?\nCustomer: It says "authentication failed".\nAgent: Let\'s try resetting your password. I\'ve sent a reset link to your email.\nCustomer: Got it, that worked! Thank you.',
+      "Customer: I'm having trouble logging into the mobile app.\nAgent: I'm sorry to hear that. Let's troubleshoot together. What error message are you seeing?\nCustomer: It says \"authentication failed\".\nAgent: Let's try resetting your password. I've sent a reset link to your email.\nCustomer: Got it, that worked! Thank you.",
   },
   {
     id: '5',

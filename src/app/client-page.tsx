@@ -8,6 +8,6 @@ export const DynamicChartDisplay = dynamic(
   () => import('@/components/chart-display').then(mod => ({ default: mod.ChartDisplay })),
   {
     loading: () => <Skeleton className="w-full h-[300px]" />,
-    ssr: false
+    ssr: false,
   }
 )

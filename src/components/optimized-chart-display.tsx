@@ -14,7 +14,7 @@ interface ChartDisplayProps {
 function ChartDisplayComponent({ title = performanceData.title, className }: ChartDisplayProps) {
   // Pre-compute the grid cells to avoid recreating the array on each render
   const gridCells = useMemo(() => Array.from({ length: 16 }), [])
-  
+
   // Pre-compute month labels
   const monthLabels = useMemo(() => performanceData.points.map(point => point.month), [])
 
@@ -52,25 +52,13 @@ function ChartDisplayComponent({ title = performanceData.title, className }: Cha
             {/* Gradient definition - using explicit purple color with opacity */}
             <defs>
               <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop
-                  offset="0%"
-                  stopColor="oklch(0.541 0.281 293.009)"
-                  stopOpacity="0.3"
-                />
-                <stop
-                  offset="100%"
-                  stopColor="oklch(0.541 0.281 293.009)"
-                  stopOpacity="0.05"
-                />
+                <stop offset="0%" stopColor="oklch(0.541 0.281 293.009)" stopOpacity="0.3" />
+                <stop offset="100%" stopColor="oklch(0.541 0.281 293.009)" stopOpacity="0.05" />
               </linearGradient>
             </defs>
 
             {/* Shaded area - using purple gradient */}
-            <path
-              d={chartPath.area}
-              fill="url(#chartGradient)"
-              className="opacity-80"
-            />
+            <path d={chartPath.area} fill="url(#chartGradient)" className="opacity-80" />
 
             {/* Line - using explicit color */}
             <path

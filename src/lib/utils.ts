@@ -11,8 +11,8 @@ export function throttle<T extends (...args: unknown[]) => unknown>(
   limit: number
 ): (...args: Parameters<T>) => void {
   let inThrottle = false
-  
-  return function(this: unknown, ...args: Parameters<T>) {
+
+  return function (this: unknown, ...args: Parameters<T>) {
     if (!inThrottle) {
       func.apply(this, args)
       inThrottle = true
@@ -28,14 +28,14 @@ export function memoize<T extends (...args: unknown[]) => unknown>(
   fn: T
 ): (...args: Parameters<T>) => ReturnType<T> {
   const cache = new Map<string, ReturnType<T>>()
-  
+
   return (...args: Parameters<T>): ReturnType<T> => {
     const key = JSON.stringify(args)
-    
+
     if (cache.has(key)) {
       return cache.get(key) as ReturnType<T>
     }
-    
+
     const result = fn(...args) as ReturnType<T>
     cache.set(key, result)
     return result

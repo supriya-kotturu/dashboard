@@ -17,11 +17,11 @@ export const performanceData: ChartData = {
     { month: 'Jul', value: 40 },
     { month: 'Sep', value: 60 },
     { month: 'Nov', value: 80 },
-  ]
+  ],
 }
 
 // This data could be used to generate the SVG path dynamically
 export const chartPath = {
-  line: "M0,80 C10,70 20,75 30,60 C40,45 50,55 60,40 C70,25 80,35 90,20",
-  area: "M0,80 C10,70 20,75 30,60 C40,45 50,55 60,40 C70,25 80,35 90,20 L100,20 L100,100 L0,100 Z"
+  line: 'M0,80 C10,70 20,75 30,60 C40,45 50,55 60,40 C70,25 80,35 90,20',
+  area: 'M0,80 C10,70 20,75 30,60 C40,45 50,55 60,40 C70,25 80,35 90,20 L100,20 L100,100 L0,100 Z',
 }

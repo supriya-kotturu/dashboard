@@ -22,37 +22,31 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 
-const teamLogoVariants = cva(
-  'flex aspect-square items-center justify-center rounded-lg',
-  {
-    variants: {
-      size: {
-        default: 'size-8',
-        sm: 'size-6',
-        lg: 'size-10',
-      },
+const teamLogoVariants = cva('flex aspect-square items-center justify-center rounded-lg', {
+  variants: {
+    size: {
+      default: 'size-8',
+      sm: 'size-6',
+      lg: 'size-10',
     },
-    defaultVariants: {
-      size: 'default',
-    },
-  }
-)
+  },
+  defaultVariants: {
+    size: 'default',
+  },
+})
 
-const teamIconVariants = cva(
-  'shrink-0',
-  {
-    variants: {
-      size: {
-        default: 'size-4',
-        sm: 'size-3.5',
-        lg: 'size-5',
-      },
+const teamIconVariants = cva('shrink-0', {
+  variants: {
+    size: {
+      default: 'size-4',
+      sm: 'size-3.5',
+      lg: 'size-5',
     },
-    defaultVariants: {
-      size: 'default',
-    },
-  }
-)
+  },
+  defaultVariants: {
+    size: 'default',
+  },
+})
 
 interface TeamSwitcherProps extends React.HTMLAttributes<HTMLDivElement> {
   teams: Team[]
@@ -75,7 +69,12 @@ export function TeamSwitcher({ teams, className }: TeamSwitcherProps) {
               size="lg"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
-              <div className={cn(teamLogoVariants(), "bg-sidebar-primary text-sidebar-primary-foreground")}>
+              <div
+                className={cn(
+                  teamLogoVariants(),
+                  'bg-sidebar-primary text-sidebar-primary-foreground'
+                )}
+              >
                 <activeTeam.logo className={teamIconVariants()} />
               </div>
               <div className="grid flex-1 text-left text-sm leading-tight">

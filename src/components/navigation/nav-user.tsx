@@ -24,21 +24,18 @@ import {
   useSidebar,
 } from '@/components/ui/sidebar'
 
-const navUserVariants = cva(
-  '',
-  {
-    variants: {
-      variant: {
-        default: '',
-        compact: '',
-        spacious: '',
-      },
+const navUserVariants = cva('', {
+  variants: {
+    variant: {
+      default: '',
+      compact: '',
+      spacious: '',
     },
-    defaultVariants: {
-      variant: 'default',
-    },
-  }
-)
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+})
 
 interface NavUserProps {
   user: User
@@ -46,12 +43,7 @@ interface NavUserProps {
   className?: string
 }
 
-export function NavUser({
-  user,
-  className,
-  variant,
-  ...props
-}: NavUserProps) {
+export function NavUser({ user, className, variant, ...props }: NavUserProps) {
   const { isMobile } = useSidebar()
 
   return (

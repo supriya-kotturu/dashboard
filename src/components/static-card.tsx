@@ -12,15 +12,7 @@ type StaticCardProps = React.ComponentProps<typeof Card> & {
 }
 
 export function StaticCard(props: StaticCardProps) {
-  const {
-    icon: Icon,
-    title,
-    tag,
-    stats,
-    trend = 'down',
-    percentage = '12',
-    className,
-  } = props
+  const { icon: Icon, title, tag, stats, trend = 'down', percentage = '12', className } = props
 
   return (
     <Card className={cn('w-full h-[120px] pt-0 flex flex-col', className)}>

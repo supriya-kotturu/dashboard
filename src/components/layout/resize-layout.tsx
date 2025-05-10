@@ -26,30 +26,24 @@ export function ResizeLayout({
       <ResizablePanelGroup direction="horizontal" className="w-full h-full">
         {/* Left section (1/3 of the screen by default) */}
         <ResizablePanel defaultSize={defaultLayout[0]} minSize={20}>
-          <div className="h-full overflow-auto p-4">
-            {leftContent}
-          </div>
+          <div className="h-full overflow-auto p-4">{leftContent}</div>
         </ResizablePanel>
-        
+
         <ResizableHandle withHandle />
-        
+
         {/* Right section (2/3 of the screen by default) */}
         <ResizablePanel defaultSize={defaultLayout[1]} minSize={30}>
           <ResizablePanelGroup direction="vertical">
             {/* Top right section (4/5 of the right section by default) */}
             <ResizablePanel defaultSize={defaultVerticalLayout[0]} minSize={50}>
-              <div className="h-full overflow-auto p-4">
-                {topRightContent}
-              </div>
+              <div className="h-full overflow-auto p-4">{topRightContent}</div>
             </ResizablePanel>
-            
+
             <ResizableHandle withHandle />
-            
+
             {/* Bottom right section (1/5 of the right section by default) */}
             <ResizablePanel defaultSize={defaultVerticalLayout[1]} minSize={10}>
-              <div className="h-full overflow-auto p-4">
-                {bottomRightContent}
-              </div>
+              <div className="h-full overflow-auto p-4">{bottomRightContent}</div>
             </ResizablePanel>
           </ResizablePanelGroup>
         </ResizablePanel>

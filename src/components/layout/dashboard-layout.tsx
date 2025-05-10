@@ -38,8 +38,8 @@ function DashboardLayoutComponent({
 
   return (
     <div className={cn('w-full h-full', className)}>
-      <ResizablePanelGroup 
-        direction="vertical" 
+      <ResizablePanelGroup
+        direction="vertical"
         className="w-full h-full"
         onLayout={handleVerticalResize}
       >
@@ -52,10 +52,7 @@ function DashboardLayoutComponent({
 
         {/* Bottom section (3/4 of the screen by default) */}
         <ResizablePanel defaultSize={100 - defaultTopLayout} minSize={30}>
-          <ResizablePanelGroup 
-            direction="horizontal"
-            onLayout={handleHorizontalResize}
-          >
+          <ResizablePanelGroup direction="horizontal" onLayout={handleHorizontalResize}>
             {/* Left bottom section (3/5 of the bottom section by default) */}
             <ResizablePanel defaultSize={defaultBottomLayout[0]} minSize={40}>
               <div className="h-full overflow-auto p-4">{leftBottomContent}</div>
