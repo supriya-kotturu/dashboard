@@ -7,13 +7,13 @@ import { cn } from '@/lib/utils'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './ui/collapsible'
 
 export interface ConversationProps {
-  id: string
-  customerName: string
-  customerGroup: string
-  date: string
-  review: string
-  conversation: string
-  className?: string
+  readonly id: string
+  readonly customerName: string
+  readonly customerGroup: string
+  readonly date: string
+  readonly review: string
+  readonly conversation: string
+  readonly className?: string
 }
 
 export function ConversationItem({
@@ -29,11 +29,7 @@ export function ConversationItem({
 
   return (
     <Card className={cn('overflow-hidden', className)}>
-      <Collapsible
-        open={isOpen}
-        onOpenChange={setIsOpen}
-        className="w-full"
-      >
+      <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-full" data-testid={id}>
         <div className="flex items-center justify-between p-3">
           <div className="flex items-center gap-3">
             <div className="bg-primary/10 p-1.5 rounded-full">
@@ -53,7 +49,7 @@ export function ConversationItem({
             </CollapsibleTrigger>
           </div>
         </div>
-        
+
         <CollapsibleContent>
           <div className="px-3 pb-3 pt-0">
             <div className="mb-2">

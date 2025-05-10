@@ -9,7 +9,6 @@ type StaticCardProps = React.ComponentProps<typeof Card> & {
   stats?: string
   trend?: 'up' | 'down'
   percentage?: string
-  description?: string
 }
 
 export function StaticCard(props: StaticCardProps) {
@@ -20,7 +19,6 @@ export function StaticCard(props: StaticCardProps) {
     stats,
     trend = 'down',
     percentage = '12',
-    description,
     className,
   } = props
 
