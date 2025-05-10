@@ -40,9 +40,10 @@ const navUserVariants = cva(
   }
 )
 
-interface NavUserProps extends React.HTMLAttributes<HTMLDivElement> {
+interface NavUserProps {
   user: User
   variant?: 'default' | 'compact' | 'spacious'
+  className?: string
 }
 
 export function NavUser({

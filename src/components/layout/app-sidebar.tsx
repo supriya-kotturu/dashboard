@@ -36,7 +36,7 @@ const appSidebarVariants = cva(
   }
 )
 
-interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
+interface AppSidebarProps extends Omit<React.ComponentProps<typeof Sidebar>, 'variant'> {
   variant?: 'default' | 'compact' | 'spacious'
 }
 

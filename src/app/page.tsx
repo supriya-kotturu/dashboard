@@ -1,8 +1,11 @@
+import { Suspense } from 'react'
 import { StaticCard } from '@/components/static-card'
 import { DashboardLayout } from '@/components/layout/dashboard-layout'
-import { ChartDisplay } from '@/components/chart-display'
-import { ConversationItem } from '@/components/conversation-item'
 import { cardData, conversationData } from '@/data'
+import { Skeleton } from '@/components/ui/skeleton'
+import { LazyConversationList } from '@/components/lazy-conversation-list'
+
+import { DynamicChartDisplay } from './client-page'
 
 export default function Home() {
   return (
@@ -28,23 +31,15 @@ export default function Home() {
               </div>
             </div>
           }
-          leftBottomContent={<ChartDisplay />}
+          leftBottomContent={
+            <Suspense fallback={<Skeleton className="w-full h-[300px]" />}>
+              <DynamicChartDisplay />
+            </Suspense>
+          }
           rightBottomContent={
             <div>
               <h2 className="text-base font-bold mb-4">Recent Conversations</h2>
-              <div className="space-y-4">
-                {conversationData.map(conversation => (
-                  <ConversationItem
-                    key={conversation.id}
-                    id={conversation.id}
-                    customerName={conversation.customerName}
-                    customerGroup={conversation.customerGroup}
-                    date={conversation.date}
-                    review={conversation.review}
-                    conversation={conversation.conversation}
-                  />
-                ))}
-              </div>
+              <LazyConversationList conversations={conversationData} />
             </div>
           }
           defaultBottomLayout={[60, 40]}
