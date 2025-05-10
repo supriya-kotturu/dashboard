@@ -18,6 +18,7 @@ import {
 import { NavMain } from '@/components/navigation/nav-main'
 import { NavProjects } from '@/components/navigation/nav-projects'
 import { NavUser } from '@/components/navigation/nav-user'
+import { ModeToggle } from '@/components/theme/theme-toggle'
 import { TeamSwitcher } from '@/components/team-switcher'
 import {
   Sidebar,
@@ -172,7 +173,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <div className="flex flex-col gap-2">
+          <div className="flex px-2 group-data-[collapsible=icon]:px-0">
+            <ModeToggle iconSize="xs" />
+          </div>
+          <NavUser user={data.user} />
+        </div>
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
